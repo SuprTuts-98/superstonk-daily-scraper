@@ -116,7 +116,7 @@ while True:
     im = Image.open("wordcloud.png")
     width, height = im.size
     draw = ImageDraw.Draw(im)
-    text = "Made from the {}/{}/{} daily thread".format(year,prev_month,prev_day)
+    text = "Made from the {}/{}/{} daily thread".format(year,month,day)
     font = ImageFont.truetype('arialbd.ttf', 100)
     textwidth, textheight = draw.textsize(text,font)
     margin = 90
@@ -125,5 +125,5 @@ while True:
     draw.text((x,y), text, font=font)
     im.show()
     im.save('wordcloud.png')
-    pause.until(datetime(year, month, day, 6, 0, 0))
+    pause.until(datetime(year, next_month, next_day, 6, 0, 0))
     make_submission()
